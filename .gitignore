@@ -1,0 +1,13 @@
+# ide project files
+.DS_Store
+.idea
+# temp files
+
+# vendor
+
+# log
+
+# main.go
+/main.go
+#redis
+
