@@ -1,4 +1,4 @@
-package demo // 指定当前源文件所在的包名
+package main // 指定当前源文件所在的包名
 
 import "math/rand" // 引入一个标准库包
 

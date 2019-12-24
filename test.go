@@ -5,7 +5,6 @@ import (
 	"image/color"
 	"math/cmplx"
 	"math/rand"
-	lib "git.kuainiujinke.com/dsq/commonlib-go"
 )
 
 const MaxRand  = 100
@@ -29,11 +28,20 @@ func StatRandomNumbers(numRands int) (int, int) {
 	return a, b // 此函数返回两个结果
 }
 
-func main() {
-	fmt.Println(lib.Now().Unix())
+func test()(a int32,b int32)  {
+	a =1
+	return
+
 }
 
+func main() {
 
+	a, b := 123, "Go"
+
+	fmt.Printf("a == %v == 0x%x, b == %s\n", a, a, b)
+	fmt.Printf("type of a: %T, type of b: %T\n", a, b)
+
+}
 
 func mandelbrot(z complex128) color.Color {
 	const iterations = 200
