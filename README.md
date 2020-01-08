@@ -10,12 +10,47 @@
 - **关键字不能被用做标识符。**
 - _是一个特殊字符，它叫做空标识符
 
-## 基本类型
+## GO系统类型概述（26个 GO 1.13）
+### 基本类型
 - 布尔类型：bool。
 - 11种内置整数类型：int8、uint8、int16、uint16、int32、uint32、int64、uint64、int、uint和uintptr。
 - 两种内置浮点数类型：float32和float64。
 - 两种内置复数类型：complex64和complex128。
 - 一种内置字符串类型：string。
+### 组合类型
+- 指针类型 - 类C指针 // *T
+- 结构体类型 - 类C结构体
+````
+type T struct {
+	type string
+}
+````
+- 函数类型 - 函数类型在Go中是一种一等公民类别
+````
+func(int) (bool, string)
+````
+- 容器类型
+````
+数组类型 - 定长容器类型
+[5]T       // 一个元素类型为T、元素个数为5的数组类型
+切片类型 - 动态长度和容量容器类型
+[]T        // 一个元素类型为T的切片类型
+映射类型（map）- 也常称为字典类型。在标准编译器中映射是使用哈希表实现的。
+map[Tkey]T // 一个键值类型为Tkey、元素类型为T的映射类型
+````
+- 通道类型 - 通道用来同步并发的协程
+````
+chan T
+chan<- T
+<-chan T
+````
+- 接口类型 - 接口在反射和多态中发挥着重要角色
+````
+interface {
+	Method0(string) int
+	Method1() (int, bool)
+}
+````
 ### 别名/特殊
 - byte是uint8的内置别名。 我们可以将byte和uint8看作是同一个类型
 - rune是int32的内置别名。 我们可以将rune和int32看作是同一个类型。
@@ -115,7 +150,7 @@ func main() {
 		for i := 0; i < 3; i++ {
 			defer fmt.Println("a:", i)
 		}
-	}() ///210
+	}() //210
 	fmt.Println()
 	func() {
 		for i := 0; i < 3; i++ {
