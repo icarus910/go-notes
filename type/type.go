@@ -12,7 +12,7 @@ func double(x *int) {
 
 func main() {
 	var b int = 70
-	fmt.Println(strconv.Itoa(b)) // 6
+	fmt.Println(strconv.Itoa(b)) // 70
 	a := 3
 	double(&a)
 	fmt.Println(a) // 6
